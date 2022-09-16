@@ -2,7 +2,6 @@
 Remote control package library
 
 ## Transmitter
-
 Channel Assignment:
 
 - **SwA**
