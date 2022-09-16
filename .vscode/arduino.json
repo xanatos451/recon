@@ -1,0 +1,9 @@
+{
+    "configuration": "usbstack=arduino,debug=off,sercom4=include",
+    "board": "Seeeduino:samd:seeed_XIAO_m0",
+    "port": "COM9",
+    "sketch": "Recon_Main.ino",
+    "arduino": "avrisp",
+    "programmer": "Seeeduino:adafruit_jlink",
+    "output": "build"
+}

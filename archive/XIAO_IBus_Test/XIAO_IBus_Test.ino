@@ -6,21 +6,34 @@
 
 //LED Vars
 #define LED_PIN 3              // Arduino pin number LED strip is connected to
-#define NUM_LEDS 4             // Number of LEDs in strip
+#define NUM_LEDS 8             // Number of LEDs in strip
 #define COLOR_ORDER GRB         // LED Color order
 #define LED_TYPE WS2812B        // LED Strip Type
 #define MAX_BRIGHTNESS 164      // Thats full on, watch the power!
 #define MIN_BRIGHTNESS 32       // Set to a minimum of 25%
+
+struct radio{
+  bool  SwA;
+  bool  SwB;
+  int   SwC;
+  bool  SwD;
+  int   VrA;
+  int   VrB;
+  int   LsUD;
+  int   LsLR;
+  int   RsUD;
+  int   RsLR;
+};
 
 CRGB leds[NUM_LEDS]; // FastLED Library Init
 
 IBusBM ibusRc;
 
 HardwareSerial& ibusRcSerial = Serial1;
-//Serial_ & debugSerial = SerialUSB;
+Serial_ & debugSerial = SerialUSB;
 
 void setup() {
-//debugSerial.begin(115200);
+debugSerial.begin(9600);
   ibusRc.begin(ibusRcSerial);
 
   FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
@@ -60,6 +73,10 @@ bool redSwitch(byte channelInput, bool defaultValue){
 void loop() {
   //int mappedValue = map(analogRead(brightnessInPin), 0, 1023, 0, 255);    //Map values - map(value, fromLow, fromHigh, toLow, toHigh)
   //FastLED.setBrightness(constrain(mappedValue, MIN_BRIGHTNESS, MAX_BRIGHTNESS));
+
+  for (byte i=0; i<10; i++){
+    debugSerial.printf("Ch%d: %d\n", i+1, readChannel(i, 1000, 2000, 0));
+  }
   
  // for (byte i = 0; i<5; i++){
 //   int value = readChannel(3, -100, 100, 0);

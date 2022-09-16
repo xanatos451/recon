@@ -1,0 +1,127 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\xanat\\AppData\\Local\\Arduino15\\packages\\Seeeduino\\hardware\\samd\\1.8.3\\cores\\arduino"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "C:\\Users\\xanat\\AppData\\Local\\Arduino15\\packages\\Seeeduino\\hardware\\samd\\1.8.3\\variants\\XIAO_m0"
+  },
+  {
+    "Sourcefile": "d:\\Sandbox\\github\\xanatos451\\recon\\build\\sketch\\Recon_Main.ino.cpp",
+    "Include": "FastLED_NeoPixel.h",
+    "Includepath": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED_NeoPixel\\src"
+  },
+  {
+    "Sourcefile": "d:\\Sandbox\\github\\xanatos451\\recon\\build\\sketch\\Recon_Main.ino.cpp",
+    "Include": "Adafruit_NeoPixel.h",
+    "Includepath": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\Adafruit_NeoPixel"
+  },
+  {
+    "Sourcefile": "d:\\Sandbox\\github\\xanatos451\\recon\\build\\sketch\\Recon_Main.ino.cpp",
+    "Include": "FastLED.h",
+    "Includepath": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src"
+  },
+  {
+    "Sourcefile": "d:\\Sandbox\\github\\xanatos451\\recon\\build\\sketch\\Recon_Main.ino.cpp",
+    "Include": "IBusBM.h",
+    "Includepath": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\IBusBM\\src"
+  },
+  {
+    "Sourcefile": "d:\\Sandbox\\github\\xanatos451\\recon\\build\\sketch\\Recon_Main.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "d:\\Sandbox\\github\\xanatos451\\recon\\build\\sketch\\readReceiver.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED_NeoPixel\\src\\FastLED_NeoPixel.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\Adafruit_NeoPixel\\Adafruit_NeoPixel.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\Adafruit_NeoPixel\\esp.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\Adafruit_NeoPixel\\esp8266.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\Adafruit_NeoPixel\\kendyte_k210.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\FastLED.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\bitswap.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\colorpalettes.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\colorutils.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\hsv2rgb.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\lib8tion.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\noise.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\platforms\\esp\\32\\clockless_rmt_esp32.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\platforms.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\power_mgt.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED\\src\\wiring.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\IBusBM\\src\\IBusBM.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]

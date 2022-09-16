@@ -1,14 +1,15 @@
-// #include <FastLED_NeoPixel.h>
+# 1 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main.ino"
+# 2 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main.ino" 2
 
-#include <IBusBM.h>
+# 4 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main.ino" 2
 
 IBusBM ibusRc;
-HardwareSerial& ibusRcSerial = Serial1;
+::HardwareSerial& ibusRcSerial = Serial1;
 
-#define receiverPin
+
 
 void setup() {
-    Serial.begin(9600);
+    SerialUSB.begin(9600);
     ibusRc.begin(ibusRcSerial);
 }
 

@@ -1,4 +1,6 @@
-// #include <FastLED_NeoPixel.h>
+#include <Arduino.h>
+#line 1 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main.ino"
+#include <FastLED_NeoPixel.h>
 
 #include <IBusBM.h>
 
@@ -7,6 +9,13 @@ HardwareSerial& ibusRcSerial = Serial1;
 
 #define receiverPin
 
+#line 10 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main.ino"
+void setup();
+#line 15 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main.ino"
+void loop();
+#line 22 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main.ino"
+int readChannel(byte channelInput, int minLimit, int maxLimit, int defaultValue);
+#line 10 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main.ino"
 void setup() {
     Serial.begin(9600);
     ibusRc.begin(ibusRcSerial);

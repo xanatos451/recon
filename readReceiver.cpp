@@ -3,11 +3,21 @@
 class ReadReceiver
 {
 
-  
-
   public:
 
-  Receiver(int pin);
+  struct radio{
+    bool  SwA;
+    bool  SwB;
+    int   SwC;
+    bool  SwD;
+    int   VrA;
+    int   VrB;
+    int   LsUD;
+    int   LsLR;
+    int   RsUD;
+    int   RsLR;
+  };
+
   void read();
 
   // Read the number of a given channel and convert to the range provided.
