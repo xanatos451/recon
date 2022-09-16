@@ -6,26 +6,29 @@ Remote control package library
 Channel Assignment:
 
 - **SwA**
-  - 2 position switch
+  - Ch5: 2 position switch
 - **SwB**
-  - 2 position switch
+  - Ch6: 2 position switch
 - **SwC**
-  - 3 position switch 
+  - Ch7: 3 position switch
 - **SwD**
-  - 2 posiiion switch
-- **PotA**
-  - variable pot selector
-- **PotB**
-  - variable pot selector
-- **LSUD**
-  - Left Stick Up/Down variable
-- **LSLR**
-  - Left Stick Left/Right variable
-- **RSUD**
-  - Right Stick Up/Down variable
-- **RSLR**
-  - Right Stick Left/Right variable
+  - Ch8: 2 position switch
+- **VrA**
+  - Ch9: variable pot selector
+- **VrB**
+  - Ch10: variable pot selector
+- **LsUD**
+  - Ch3: Left Stick Up/Down variable
+- **LsLR**
+  - Ch4: Left Stick Left/Right variable
+- **RsUD**
+  - Ch2: Right Stick Up/Down variable
+- **RsLR**
+  - Ch1: Right Stick Left/Right variable
 
+Transmitter firmware is upgraded via the FlySky i6 10ch mod. Sticks are assigned to Mode 2 layout with aux channels assigned to the above layout via the setup menu (long press OK on transmitter).
+
+- ../FlySky i6 Firmware/FlySky-i6-Mod--master/FlySky-i6-Mod--master/10ch Mod i6 Updater/10ch_MOD_i6_Programmer_V1_5
 
 ## Processor
 
@@ -48,3 +51,9 @@ This project uses the Arduino compatible Seeeduino XIAO (SAMD21) microprocessor
 - 6 serial communication modules (SERCOM) configurable as UART/USART, SPI or I2C
 
 https://dronebotworkshop.com/seeeduino-xiao-intro/
+
+
+## Library Updates
+
+- IBusBM requires code changes to support samd21 processors
+    - https://github.com/bmellink/IBusBM/pull/23/files 
