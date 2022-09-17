@@ -5,6 +5,14 @@
 // #include "readRadio.ino"
 // #include "readVoltage.ino"
 
+
+int buttonPin = 1;
+const unsigned long intervalButton = 100;
+unsigned long pTimeButton;
+bool buttonPressed = false;
+
+
+// -----------------------------------------------
 // radio stuff
 #include <IBusBM.h>
 IBusBM ibusRc;
@@ -21,31 +29,14 @@ struct radio{
     int   LsLR;
     int   RsUD;
     int   RsLR;
-    float   ExtV;
+    // float   ExtV;
   };
 
-radio rcvr = {false, false, 1000, false, 1000, 1000, 1000, 1000, 1000, 1000, 0.00}; // initial receiver value
+radio rcvr = {false, false, 1000, false, 1000, 1000, 1000, 1000, 1000, 1000}; // initial receiver value
 
 const unsigned long intervalRadio = 10;
 unsigned long pTimeRadio;
-// --------------------------------------------------
-// voltage stuff
 
-// Define analog input
-#define ANALOG_IN_PIN A0
-
-// Float input voltage
-float in_voltage = 0.0;
- 
-// Floats for resistor values in divider (in ohms)
-float R1 = 27000.0;
-float R2 = 6800.0;
-
-// Float for Reference Voltage
-float ref_voltage = 5.0;
- 
-const unsigned long intervalVoltage = 1000;
-unsigned long pTimeVoltage;
 // --------------------------------------------------
 // servo stuff
 
@@ -56,11 +47,15 @@ Adafruit_PWMServoDriver myServo = Adafruit_PWMServoDriver(0x40);
 uint8_t servoNum = 0;   // servo counter
 uint8_t numServos = 2;  // number of servos
 
+// SETUP ---------------------------------------------------------------
 void setup() {
     Serial.begin(9600);  // debugger
+    
+    pinMode(buttonPin, INPUT);  // button 
+
 
     ibusRc.begin(ibusRcSerial);         // initialize radio receiver connection
-    ibusRc.addSensor(IBUSS_EXTV);
+    // ibusRc.addSensor(IBUSS_EXTV);
     // in_voltage = readVoltageValue();   // initial voltage value reading
        
     // servo setup
@@ -68,29 +63,52 @@ void setup() {
     myServo.setPWMFreq(60);    
 }
 
+// MAIN LOOP -----------------------------------------------------------
 void loop() {
-    readVoltage(rcvr.ExtV);    // update the voltage reading
+    // readVoltage(rcvr.ExtV);    // update the voltage reading
     readRadio(rcvr, ibusRc);  // update the receiver values from the transmitter
     // ibusRc.setSensorMeasurement(1, in_voltage);
-    
+    checkButton();
 
-    Serial.print("Input Voltage = ");
-    Serial.println(rcvr.ExtV, 2);
 
-    for (uint16_t pulselen = SERVOMIN; pulselen < SERVOMAX; pulselen++){
-        myServo.setPWM(servoNum, 0, pulselen);
+
+    if (buttonPressed) {
+        Serial.println("Button Pressed");
+
+        // for (uint16_t pulselen = SERVOMIN; pulselen < SERVOMAX; pulselen++){
+        //     myServo.setPWM(1, 0, pulselen);
+        // }
+        myServo.setPWM(1, 0, SERVOMAX);
+    } 
+    else {
+        Serial.println("Button Not Pressed");
+        // for(uint16_t pulselen = SERVOMAX; pulselen > SERVOMIN; pulselen--){
+        //     
+        // }
+
+        myServo.setPWM(1, 0, SERVOMIN);
+        
     }
-    delay(500);
-
-    for(uint16_t pulselen = SERVOMAX; pulselen > SERVOMIN; pulselen--){
-        myServo.setPWM(servoNum, 0, pulselen);
-    }
-    delay(500);
-
-    servoNum++;
-    if (servoNum > numServos)
-        servoNum = 0;
 }
+
+// -----------------------------------------------------
+// read button stuff
+
+// checks button state at intervals
+void checkButton() {
+    unsigned long currTime = millis();
+    if (currTime - pTimeButton > intervalButton){
+       if (digitalRead(buttonPin) == LOW){
+            buttonPressed = true;
+       }
+       else{
+        buttonPressed = false;
+       }
+       pTimeButton = currTime;
+    }
+}
+
+// -----------------------------------------------------
 
 
 // Read the number of a given channel and convert to the range provided.
@@ -118,26 +136,9 @@ void readRadio(radio& r, IBusBM& ibR){
         r.VrA = readChannel(8, 1000, 2000, 1000, ibR);
         r.VrB = readChannel(9, 1000, 2000, 1000, ibR);
 
-        sendRadioSensor(ibR, r);    // send sensor data to transmitter
+        // ibR.setSensorMeasurement(1, r.ExtV);    // send sensor data to transmitter
 
         pTimeRadio = millis();      // set the previous time to current time
     }
 }
 
-void sendRadioSensor(IBusBM& ibR, radio r){
-    ibR.setSensorMeasurement(1, r.ExtV);
-}
-
-void readVoltage(float& in_vdc){
-    if (millis() - pTimeVoltage >= intervalVoltage) {
-        // Read the Analog Input
-        int adc_value = analogRead(ANALOG_IN_PIN);
-        
-        // Determine voltage at ADC input
-        float adc_voltage = (adc_value * ref_voltage) / 1024.0;
-
-        in_vdc = adc_voltage / (R2/(R1+R2));
-
-        pTimeVoltage = millis();    // set the previous time to current time
-    }
-}

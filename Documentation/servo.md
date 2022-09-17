@@ -31,3 +31,8 @@ Features
 ## Libary
 
 https://github.com/adafruit/Adafruit-PWM-Servo-Driver-Library
+
+
+## Calibration
+
+https://learn.adafruit.com/16-channel-pwm-servo-driver?view=all#calibrating-your-servos-1825149
