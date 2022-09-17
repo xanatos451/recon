@@ -1,5 +1,7 @@
+#include <Adafruit_PWMServoDriver.h>
+#include <Wire.h>
 #include <FastLED_NeoPixel.h>
-#include <Servo.h>
+// #include <Servo.h>
 // #include "readRadio.ino"
 // #include "readVoltage.ino"
 
@@ -27,8 +29,8 @@ radio rcvr = {false, false, 1000, false, 1000, 1000, 1000, 1000, 1000, 1000, 0.0
 const unsigned long intervalRadio = 10;
 unsigned long pTimeRadio;
 // --------------------------------------------------
-
 // voltage stuff
+
 // Define analog input
 #define ANALOG_IN_PIN A0
 
@@ -45,17 +47,25 @@ float ref_voltage = 5.0;
 const unsigned long intervalVoltage = 1000;
 unsigned long pTimeVoltage;
 // --------------------------------------------------
+// servo stuff
 
+#define SERVOMIN 125
+#define SERVOMAX 575
+
+Adafruit_PWMServoDriver myServo = Adafruit_PWMServoDriver(0x40);
+uint8_t servoNum = 0;   // servo counter
+uint8_t numServos = 2;  // number of servos
 
 void setup() {
     Serial.begin(9600);  // debugger
 
     ibusRc.begin(ibusRcSerial);         // initialize radio receiver connection
-    ibusRc.addSensor(IBUSS_INTV);
+    ibusRc.addSensor(IBUSS_EXTV);
     // in_voltage = readVoltageValue();   // initial voltage value reading
-    
-    // rcvr readRadioValues();     // initial radio value reading
-    
+       
+    // servo setup
+    myServo.begin();
+    myServo.setPWMFreq(60);    
 }
 
 void loop() {
@@ -66,6 +76,20 @@ void loop() {
 
     Serial.print("Input Voltage = ");
     Serial.println(rcvr.ExtV, 2);
+
+    for (uint16_t pulselen = SERVOMIN; pulselen < SERVOMAX; pulselen++){
+        myServo.setPWM(servoNum, 0, pulselen);
+    }
+    delay(500);
+
+    for(uint16_t pulselen = SERVOMAX; pulselen > SERVOMIN; pulselen--){
+        myServo.setPWM(servoNum, 0, pulselen);
+    }
+    delay(500);
+
+    servoNum++;
+    if (servoNum > numServos)
+        servoNum = 0;
 }
 
 
