@@ -18,7 +18,9 @@
                 "C:/Users/xanat/OneDrive/Documents/Arduino/libraries/**",
                 "C:/Users/xanat/AppData/Local/Arduino15/packages/**"
             ],
-            "forcedInclude": ["C:/Users/xanat/AppData/Local/Arduino15/packages/Seeeduino/hardware/samd/1.8.3/cores/arduino/Arduino.h"],
+            "forcedInclude": [
+                "C:/Users/xanat/AppData/Local/Arduino15/packages/Seeeduino/hardware/samd/1.8.3/cores/arduino/Arduino.h"
+            ],
             "cStandard": "c17",
             "cppStandard": "c++17",
             "defines": [

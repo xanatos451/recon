@@ -1,6 +1,5 @@
-#include <Arduino.h>
-#line 1 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main\\Recon_Main.ino"
 #include <FastLED_NeoPixel.h>
+#include <Servo.h>
 // #include "readRadio.ino"
 // #include "readVoltage.ino"
 
@@ -48,19 +47,6 @@ unsigned long pTimeVoltage;
 // --------------------------------------------------
 
 
-#line 49 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main\\Recon_Main.ino"
-void setup();
-#line 60 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main\\Recon_Main.ino"
-void loop();
-#line 73 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main\\Recon_Main.ino"
-int readChannel(byte channelInput, int minLimit, int maxLimit, int defaultValue, IBusBM& ibR);
-#line 82 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main\\Recon_Main.ino"
-void readRadio(radio& r, IBusBM& ibR);
-#line 102 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main\\Recon_Main.ino"
-void sendRadioSensor(IBusBM& ibR, radio r);
-#line 106 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main\\Recon_Main.ino"
-void readVoltage(float& in_vdc);
-#line 49 "d:\\Sandbox\\github\\xanatos451\\recon\\Recon_Main\\Recon_Main.ino"
 void setup() {
     Serial.begin(9600);  // debugger
 
@@ -131,4 +117,3 @@ void readVoltage(float& in_vdc){
         pTimeVoltage = millis();    // set the previous time to current time
     }
 }
-

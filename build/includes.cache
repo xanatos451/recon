@@ -35,11 +35,6 @@
     "Includepath": null
   },
   {
-    "Sourcefile": "d:\\Sandbox\\github\\xanatos451\\recon\\build\\sketch\\readReceiver.cpp",
-    "Include": "",
-    "Includepath": null
-  },
-  {
     "Sourcefile": "C:\\Users\\xanat\\OneDrive\\Documents\\Arduino\\libraries\\FastLED_NeoPixel\\src\\FastLED_NeoPixel.cpp",
     "Include": "",
     "Includepath": null
